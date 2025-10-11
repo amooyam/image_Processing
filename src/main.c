@@ -2,6 +2,8 @@
 #include "picIO.h"
 #include "picOps.h" //Picture Operations
 
+//2126 메인 분기로 이동
+
 // ---- 사용자 설정 ----
 #ifndef IN_PATH
 #define IN_PATH   "../images/lena_512x512.raw"
