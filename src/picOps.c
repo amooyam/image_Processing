@@ -7,7 +7,7 @@ void image_Arithmetic_MINUS(const ImageY8* src, ImageY8* dst)
 	const size_t N = (size_t)src->info.width * (size_t)src->info.height;
 	for (size_t i = 0; i < N; ++i) {
 		{
-			int v = (int)src->data[i] - 70;
+			int v = (int)src->data[i] - 30;
 			dst->data[i] = clip3_u8_int(v);
 		}
 	}

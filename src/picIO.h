@@ -21,7 +21,7 @@ static inline int image_save_raw_y8(const char* path, const ImageY8* img) {
 	FILE* f = fopen(path, "wb");
 	size_t want = (size_t)img->info.width * (size_t)img->info.height;
 	size_t put = fwrite(img->data, 1, want, f);
-	printf("%s: %d * %d\n", path, img->info.width, img->info.height);
+	//printf("%s: %d * %d\n", path, img->info.width, img->info.height);
 	fclose(f);
 	return put == want;
 }
