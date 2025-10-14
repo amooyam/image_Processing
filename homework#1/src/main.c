@@ -102,7 +102,7 @@ int main(void) {
 
 	// image_save_raw_y8("../histograms/src_hist_256x256.raw", &dst_Hist);
 
-	image_save_raw_y8("../histograms/rplus_hist_256x256.raw", &dst_HistPlus);
+	// image_save_raw_y8("../histograms/rplus_hist_256x256.raw", &dst_HistPlus);
 	image_save_raw_y8("../histograms/rminus_hist_256x256.raw", &dst_HistMinus);
 	// image_save_raw_y8("../histograms/rmulti_hist_256x256.raw", &dst_HistMulti);
 	// image_save_raw_y8("../histograms/rdivi_hist_256x256.raw", &dst_HistDivi);
