@@ -36,8 +36,8 @@ void image_equalization(const ImageY8* src, ImageY8* dst);
 // dst는 src와 동일 크기(W×H)로 미리 할당되어 있어야 합니다.
 void image_histmatch(const ImageY8* src, ImageY8* dst);
 
-//void image_cdf_graph(const ImageY8* src, ImageY8* dst);
+void image_cdf_graph(const ImageY8* src, ImageY8* dst);
 
-void image_stretching(const ImageY8* src, ImageY8* dst, int low, int high);
+//void image_stretching(const ImageY8* src, ImageY8* dst, int low, int high);
 
 #endif // PICOPS_H

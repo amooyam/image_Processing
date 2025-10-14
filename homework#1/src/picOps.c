@@ -199,3 +199,50 @@ void image_histmatch(const ImageY8* src, ImageY8* dst)
 	}
 }
 
+//개인적으로 추가한 함수
+void image_cdf_graph(const ImageY8* src, ImageY8* dst)
+{
+    const int W = src->info.width;
+    const int H = src->info.height;
+    const size_t N = (size_t)W * (size_t)H;
+
+    // (1) 히스토그램
+    int hist[256] = {0};
+    const unsigned char* s = src->data;
+    for (size_t i = 0; i < N; ++i)
+        ++hist[(unsigned)s[i]];
+
+    // (2) 누적합 CDF 계산 (정규화 0~255)
+    double cdf[256];
+    cdf[0] = (double)hist[0];
+    for (int i = 1; i < 256; ++i)
+        cdf[i] = cdf[i-1] + (double)hist[i];
+
+    // 0~255 스케일로 변환 (그래프 높이 맞추기)
+    double cdf_max = cdf[255];
+    for (int i = 0; i < 256; ++i)
+        cdf[i] = (cdf[i] / cdf_max) * 255.0;
+
+	printf("cdf_max=%f\n", cdf_max);
+	for (int i=0;i<10;++i) printf("cdf[%d]=%f\n", i, cdf[i]);
+
+    // (3) 그래프 이미지 초기화 (검정)
+    const int outW = 256, outH = 256;
+    memset(dst->data, 0, (size_t)outW * (size_t)outH);
+
+    // (4) CDF 그래프 그리기 (밝기=255)
+    for (int x = 0; x < 256; ++x) {
+        int y = (int)(255 - cdf[x]); // 위쪽이 255
+        if (y < 0) y = 0;
+        if (y >= 256) y = 255;
+
+        // 두껍게
+        for (int t = -1; t <= 1; ++t) {
+            int yy = y + t;
+            if (yy >= 0 && yy < 256) {
+                dst->data[yy * outW + x] = 255;
+            }
+        }
+    }
+	
+}

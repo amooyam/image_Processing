@@ -94,6 +94,7 @@ int main(void) {
 	image_histogram_256(&dst_Match, &dst_HistMatch);
 	//
 
+
 	//  ----------------------4) 저장
 	// image_save_raw_y8(OUT_PATH, &dst_Plus);
 	image_save_raw_y8("../images/rMinus.raw", &dst_Minus);
@@ -113,6 +114,17 @@ int main(void) {
 	image_save_raw_y8("../images/matched_hist.raw", &dst_Match);
 	image_save_raw_y8("../histograms/matched_hist_256x256.raw", &dst_HistMatch);
 
+
+		// CDF 시각화용 이미지
+	ImageY8 dst_CDF = { 0 };
+	image_alloc(&dst_CDF, 256, 256);
+
+	// CDF 시각화 생성
+	// image_cdf_graph(&src, &dst_CDF);
+	// image_save_raw_y8("../histograms/src_cdf_256x256.raw", &dst_CDF);
+
+	// image_cdf_graph(&dst_Match, &dst_CDF);
+	// image_save_raw_y8("../histograms/matched_cdf_256x256.raw", &dst_CDF);
 
 
 	//  ----------------------5) 정리
@@ -135,6 +147,8 @@ int main(void) {
 	image_free(&dst_Match);
 	image_free(&dst_HistMatch);
 
+	// 정리
+	image_free(&dst_CDF);
 
 
 	return 0;
