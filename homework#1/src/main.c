@@ -39,8 +39,8 @@ int main(void) {
 	// image_alloc(&dst_Hist, 256, 256);
 
 	// //산술연산 히스토그램
-	ImageY8 dst_HistPlus = { 0 };
-	image_alloc(&dst_HistPlus, 256, 256);
+	// ImageY8 dst_HistPlus = { 0 };
+	// image_alloc(&dst_HistPlus, 256, 256);
 	ImageY8 dst_HistMinus = { 0 };
 	image_alloc(&dst_HistMinus, 256, 256);
 	// ImageY8 dst_HistMulti = { 0 };
@@ -77,7 +77,7 @@ int main(void) {
 	// ------히스토그램 작성
 	// image_histogram_256(&src, &dst_Hist);
 
-	image_histogram_256(&dst_Plus, &dst_HistPlus);
+	//image_histogram_256(&dst_Plus, &dst_HistPlus);
 	image_histogram_256(&dst_Minus, &dst_HistMinus);
 	// image_histogram_256(&dst_Multi, &dst_HistMulti);
 	// image_histogram_256(&dst_Divi, &dst_HistDivi);
@@ -116,8 +116,8 @@ int main(void) {
 
 
 		// CDF 시각화용 이미지
-	ImageY8 dst_CDF = { 0 };
-	image_alloc(&dst_CDF, 256, 256);
+	// ImageY8 dst_CDF = { 0 };
+	// image_alloc(&dst_CDF, 256, 256);
 
 	// CDF 시각화 생성
 	// image_cdf_graph(&src, &dst_CDF);
@@ -136,7 +136,7 @@ int main(void) {
 
 	// image_free(&dst_Hist);
 
-	image_free(&dst_HistPlus);
+	//image_free(&dst_HistPlus);
 	image_free(&dst_HistMinus);
 	// image_free(&dst_HistMulti);
 	// image_free(&dst_HistDivi);
@@ -148,7 +148,7 @@ int main(void) {
 	image_free(&dst_HistMatch);
 
 	// 정리
-	image_free(&dst_CDF);
+	// image_free(&dst_CDF);
 
 
 	return 0;
